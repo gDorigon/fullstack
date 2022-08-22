@@ -24,4 +24,12 @@ public class Device {
     public String getMacAddress() {
         return macAddress;
     }
+    @Override
+    public boolean equals(Object obj){
+        Device dev = (Device) obj;
+        return this.getMacAddress().equalsIgnoreCase(dev.getMacAddress());
+    }
 }
+
+
+
