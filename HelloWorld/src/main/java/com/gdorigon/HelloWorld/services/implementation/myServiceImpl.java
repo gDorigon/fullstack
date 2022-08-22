@@ -14,8 +14,7 @@ public class myServiceImpl implements MyService {
     //MOCK BECAUSE WE DON'T HAVE A DATABASE... YET.
     private List<Device> myDevices = new ArrayList<>();
 
-
-
+    
     @Override
     public Device save(Device device) {
 
