@@ -38,4 +38,14 @@ public class MyEndpoints {
         return save;
     }
 
+    @PutMapping ("/{macAddress}")
+    public Device myFirstPut(@RequestBody Device device, @PathVariable String macAddress){
+
+        myService.getDeviceByMac(macAddress).setBrand(device.getBrand());
+        myService.getDeviceByMac(macAddress).setNome(device.getNome());
+        myService.getDeviceByMac(macAddress).setWifi(device.getWifi());
+
+        return myService.getDeviceByMac(macAddress);
+    }
+
 }

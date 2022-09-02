@@ -17,6 +17,22 @@ public class Device {
         return brand;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public void setWifi(Boolean wifi) {
+        this.wifi = wifi;
+    }
+
+    public void setMacAddress(String macAddress) {
+        this.macAddress = macAddress;
+    }
+
     public Boolean getWifi() {
         return wifi;
     }
