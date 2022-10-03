@@ -1,2 +1,6 @@
-<app-cart></app-cart>
+<app-cart
+    *ngFor="let myData of getData()"
+    [title] = "myData.title"
+    [id] = "myData.id"
+></app-cart>
 <router-outlet></router-outlet>
