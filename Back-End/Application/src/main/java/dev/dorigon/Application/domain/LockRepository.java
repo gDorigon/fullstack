@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LockRepository extends MongoRepository <Lock, String> {
+
+    Lock findByLockId(String lockId);
 }
