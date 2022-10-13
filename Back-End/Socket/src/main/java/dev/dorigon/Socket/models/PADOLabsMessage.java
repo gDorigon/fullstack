@@ -5,7 +5,8 @@ public class PADOLabsMessage {
     private String user;
     private String message;
 
-    public PADOLabsMessage() {}
+    public PADOLabsMessage() {
+    }
 
     public String getUser() {
         return user;
@@ -24,5 +25,8 @@ public class PADOLabsMessage {
     }
 
     @Override
-    public
+    public String toString() {
+        return "{\"" + "user\":\"" + user + '\"' + ", \"message\":\"" + message + '\"' + '}';
+    }
 }
+
