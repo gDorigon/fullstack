@@ -11,4 +11,6 @@ public class EditRequest {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+
 }
