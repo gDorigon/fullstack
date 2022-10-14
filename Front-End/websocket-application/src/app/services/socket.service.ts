@@ -6,12 +6,17 @@ import { PADOLabsMassage } from '../models/padolabsMessage';
 })
 export class SocketService {
 
-  private padoLabsMessage: PADOLabsMassage[] =[];
+  private padolabsMessages: PADOLabsMassage[] =[];
   private socket: WebSocket | undefined;
 
   constructor() {}
 
 
+  public getMessage(): PADOLabsMassage[] {
+    return this.padolabsMessages;
+   }
+
+   
    public openConnection(){
     this.socket = new WebSocket("ws://localhost:7000/chat/Dorigon");
 
@@ -20,19 +25,15 @@ export class SocketService {
     }
 
     this.socket.onmessage = (event) => {
+      console.log(event.data)
+      const padoMessages = JSON.parse(event.data)
+      this.padolabsMessages.push(padoMessages);
+    }
+
+    this.socket.onclose = (event) => {
       console.log(event)
     }
 
-   }
-
-   public getMessages(): PADOLabsMassage[] {
-    return this.padoLabsMessages;
-   }
-
-   public onmessage(){
-    console.log(event.data)
-    const padoMassage = JSON.parse(event.data);
-    this.padoLabsMessage.push(padoMassage);
    }
 
    public sendMessage(padolabsMessage: PADOLabsMassage){

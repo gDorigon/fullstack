@@ -31,7 +31,7 @@
             <div class="chat-content">
                 <div class="card">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item" *ngFor="let chatMessage of socketService.getMessages()">
+                        <li class="list-group-item" *ngFor="let chatMessage of socketService.getMessage()">
                             <strong>{{chatMessage.user}}: </strong>
                             <span>{{chatMessage.message}}</span>
                         </li>

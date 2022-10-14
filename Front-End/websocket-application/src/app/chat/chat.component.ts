@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SocketService } from '../services/socket.service';
 import { NgForm } from '@angular/forms';
-import { PADOLabsMassage} from '../models/padolabsMessage'
+import { PADOLabsMassage } from '../models/padolabsMessage'
 
 @Component({
   selector: 'app-chat',
@@ -17,7 +17,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   constructor(socketService: SocketService) {
     this.socketService = socketService;
-   }
+  }
 
   ngOnInit(): void {
     this.socketService.openConnection();
@@ -29,11 +29,9 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   public sendMessage(sendForm: NgForm) {
 
-    const padolabsMessage = new PADOLabsMassage(sendForm.value.name, sendForm.value.message);
-
+    const padolabsMessage = new PADOLabsMassage(sendForm.value.user, sendForm.value.message);
     this.socketService.sendMessage(padolabsMessage);
-    
-
+    sendForm.controls['message'].reset();
 
   }
 }
